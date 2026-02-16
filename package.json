@@ -1,0 +1,9 @@
+{
+  "name": "swarm-git",
+  "version": "0.1.0",
+  "private": true,
+  "devDependencies": {
+    "@types/node": "^22.19.11",
+    "typescript": "^5.9.3"
+  }
+}
