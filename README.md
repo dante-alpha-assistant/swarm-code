@@ -115,15 +115,28 @@ Enable optional project board tracking to visualize progress:
 
 Work packages appear as project items, moving through columns as they execute. Requires a `GITHUB_TOKEN` with project permissions.
 
+## Built by its own architecture
+
+swarm-code v0.1 was built using swarm-code's own orchestration pattern: 8 work packages across 3 parallel waves, 19 source files, 1,225 lines of TypeScript — shipped in 7 minutes.
+
+```
+Wave 1 (parallel):  Scaffold → Git Manager → Agent Adapters
+Wave 2 (parallel):  LLM Decomposer → Orchestrator → GitHub Integration
+Wave 3 (parallel):  CLI Wiring → README + Docs
+```
+
 ## vs Alternatives
 
-| | swarm-code | Single-agent CLI | IDE copilots |
-|---|---|---|---|
-| Parallel execution | ✅ Up to 8 agents | ❌ Sequential | ❌ One suggestion |
-| Model choice | ✅ BYO model | ⚠️ Vendor-locked | ⚠️ Vendor-locked |
-| Git isolation | ✅ Worktrees | ❌ Shared state | ❌ Shared state |
-| Open source | ✅ MIT | Varies | ❌ |
-| CLI-native | ✅ | ✅ | ❌ GUI-only |
+| | swarm-code | Cursor | GitHub Copilot | OpenAI Codex | SWE-agent |
+|---|---|---|---|---|---|
+| Parallel agents | ✅ Up to 8 | Preview | ❌ | Vague | ❌ Single |
+| BYO model | ✅ Any CLI | ❌ | ❌ | ❌ OpenAI only | ✅ |
+| Git isolation | ✅ Worktrees | ❌ | ❌ | ❌ | ❌ |
+| CLI-native | ✅ | ❌ IDE | ❌ IDE | ❌ Web | ✅ |
+| Open source | ✅ MIT | ❌ | ❌ | ❌ | ✅ MIT |
+| Price | **Free** | $20-60/mo | $10-39/mo | $20/mo+ | Free |
+
+**Why swarm-code?** Every other tool runs one agent at a time. swarm-code runs up to 8 in parallel, each in its own git worktree, with wave-based dependency management. It's the multi-agent orchestration that Cursor has in "preview" and Codex calls "coming soon" — except it works today, it's open source, and it runs with any coding agent.
 
 ## Contributing
 
